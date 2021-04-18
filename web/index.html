@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Snaker ws test</title>
+  <meta name="description" content="Snaker ws test">
+  <meta name="author" content="Frank Dressel">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+  <script>
+      var connection = new WebSocket('ws://localhost:8080/gps');
+      // When the connection is open, send some data to the server
+      connection.onopen = function () {
+                console.log('Connection opened');
+        };
+
+      // Log errors
+      connection.onerror = function (error) {
+                        console.log(error);
+                    };
+
+      // Log messages from the server
+      connection.onmessage = function (e) {
+                        console.log('Server: ' + e.data);
+                    };
+  </script>
+</body>
+</html>

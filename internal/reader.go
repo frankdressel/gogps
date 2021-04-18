@@ -3,6 +3,7 @@ package internal
 import (
 	"bufio"
 	"log"
+	"strconv"
 
 	"github.com/tarm/serial"
 )
@@ -10,6 +11,10 @@ import (
 type LatLon struct {
 	Lat float64
 	Lon float64
+}
+
+func (l LatLon) String() string {
+	return strconv.FormatFloat(l.Lat, 'f', 4, 64) + "," + strconv.FormatFloat(l.Lon, 'f', 4, 64)
 }
 
 func read(channel chan LatLon, device string, baud int) {
