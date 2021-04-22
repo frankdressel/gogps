@@ -38,3 +38,13 @@ func TestParse(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestParseInvalid(t *testing.T) {
+	s1 := "$GPRMC,,,,,,,,,,,"
+
+	_, _, err := Parse(s1)
+	if err == nil {
+		t.Logf("Error with invalid format expected but not thrown")
+		t.Fail()
+	}
+}

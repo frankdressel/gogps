@@ -53,5 +53,5 @@ func main() {
 	}()
 
 	http.HandleFunc("/gps", gps)
-	log.Error().Err(http.ListenAndServe("localhost:8080", nil))
+	log.Error().Err(http.ListenAndServe("localhost:6165", nil))
 }
